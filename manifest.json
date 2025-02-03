@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Deepseekr1 Chat Sidebar",
+    "version": "1.1",
+    "description": "Eine Sidebar-Chat-Extension, die sich toggeln lässt und den Seiteninhalt wie die Chrome Developer Tools verkleinert.",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://openrouter.ai/*"
+    ],
+    "action": {
+        "default_title": "Toggle Chat Sidebar"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "marked.min.js",
+                "content.js"
+            ],
+            "css": [
+                "sidebar.css"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
